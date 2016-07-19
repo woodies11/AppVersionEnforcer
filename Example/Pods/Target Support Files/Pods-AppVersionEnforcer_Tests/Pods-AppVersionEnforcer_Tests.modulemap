@@ -1,0 +1,6 @@
+framework module Pods_AppVersionEnforcer_Tests {
+  umbrella header "Pods-AppVersionEnforcer_Tests-umbrella.h"
+
+  export *
+  module * { export * }
+}

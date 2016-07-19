@@ -1,0 +1,16 @@
+PODS:
+  - AppVersionEnforcer (0.1.0)
+
+DEPENDENCIES:
+  - AppVersionEnforcer (from `../`)
+
+EXTERNAL SOURCES:
+  AppVersionEnforcer:
+    :path: ../
+
+SPEC CHECKSUMS:
+  AppVersionEnforcer: 5545975726785062a229e6f3d27290def2c33651
+
+PODFILE CHECKSUM: ae4244714c1ec0a4225aca0299e8784b48192527
+
+COCOAPODS: 1.0.0

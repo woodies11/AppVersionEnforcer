@@ -1,0 +1,6 @@
+use_frameworks!
+target 'AppVersionEnforcer_Tests' do
+  pod 'AppVersionEnforcer', :path => '../'
+  
+  
+end
