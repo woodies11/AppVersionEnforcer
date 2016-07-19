@@ -55,7 +55,7 @@ public class AppVersionEnforcer: NSObject {
      * @param apiURL = base api url
      * @param window = main window to show alert on
      */
-    public init(apiURL: String, window: UIWindow?) {
+    init(apiURL: String, window: UIWindow?) {
         self.apiURL = apiURL
         
         if self.apiURL.characters.last != "/" {
@@ -82,7 +82,7 @@ public class AppVersionEnforcer: NSObject {
             currentVersion = VersionData(versionDataDict: dataDict)
         }
     }
-
+    
     /**
      * Clear userDefault
      */
@@ -187,38 +187,38 @@ public class AppVersionEnforcer: NSObject {
      */
     private func compareAndSelectVersionData(old: VersionData?, new: VersionData?)
         -> (data: VersionData?, isNew: Bool) {
-        // both present - compare
-        if let old = old, new = new {
-            // prefered local version, if they are exactly the same, for user's ignore setting
-            if old.updatedAt >= new.updatedAt {
-                print("O N, O")
-                return (old, false)
-            } else {
-                print("O N, N")
+            // both present - compare
+            if let old = old, new = new {
+                // prefered local version, if they are exactly the same, for user's ignore setting
+                if old.updatedAt >= new.updatedAt {
+                    print("O N, O")
+                    return (old, false)
+                } else {
+                    print("O N, N")
+                    return (new, true)
+                }
+            }
+            
+            // has old data but no new data, should check version
+            if let _ = old {
+                
+                // TODO: will compare version
+                
+                // clear local data
+                clearUserDefaultVersionData()
+                print("O -, -")
+                return (nil, false)
+            }
+            
+            // there is new data but no old data
+            if let new = new {
+                print("- N, N")
                 return (new, true)
             }
-        }
-        
-        // has old data but no new data, should check version
-        if let _ = old {
             
-            // TODO: will compare version
-            
-            // clear local data
-            clearUserDefaultVersionData()
-            print("O -, -")
+            // default case: nither new nor old data found, do nothing
+            print("- -, -")
             return (nil, false)
-        }
-        
-        // there is new data but no old data
-        if let new = new {
-            print("- N, N")
-            return (new, true)
-        }
-        
-        // default case: nither new nor old data found, do nothing
-        print("- -, -")
-        return (nil, false)
     }
     
     /**
@@ -254,8 +254,13 @@ public class AppVersionEnforcer: NSObject {
         print("DONT SHOW AGAIN \(userDontShowAgain)")
         print(versionData.versionDataDict)
         
+        if isNew {
+            userIsForced = isForced
+            NSUserDefaults.standardUserDefaults().setBool(userIsForced, forKey: USER_IS_FORCED)
+        }
+        
         // if isForced, show alert and ignore other cases
-        if isForced {
+        if userIsForced || isForced {
             createAndShowAlert(versionData, isForced: isForced, isNew: isNew)
             return
         }
@@ -362,15 +367,15 @@ public class AppVersionEnforcer: NSObject {
             alert.dismissViewControllerAnimated(false, completion: nil)
             window.rootViewController?.presentViewController(alert, animated: true, completion: nil)
         })
-
+        
         
     }
     
     /**
-     * Call this function in AppDelegate applicationDidBecomeActive() 
+     * Call this function in AppDelegate applicationDidBecomeActive()
      * to enforce alert upon user returning to the application
      */
-    public func applicationDidBecomeActive(application: UIApplication) {
+    func applicationDidBecomeActive(application: UIApplication) {
         if let alert = self.currentAlert where self.forcingAlert {
             showAlert(alert)
         }
@@ -423,7 +428,7 @@ public class AppVersionEnforcer: NSObject {
     private func handleUpdateRedirect() {
         Alamofire.request(.GET, apiURL+API_GET_PLATFORM_LINK, parameters: [PARAM_PLATFORM:PLATFORM])
             .responseJSON { (response) in
-         
+                
                 guard let linkData = response.result.value else {
                     print("ERROR! No Value Found!")
                     return
@@ -435,8 +440,8 @@ public class AppVersionEnforcer: NSObject {
                     guard let urlString = linkData["link"] as? String,
                         URL = NSURL(string: urlString) else {
                             
-                        print("Invalid update link!")
-                        return
+                            print("Invalid update link!")
+                            return
                             
                     }
                     
@@ -447,5 +452,5 @@ public class AppVersionEnforcer: NSObject {
         }
     }
     
-
+    
 }

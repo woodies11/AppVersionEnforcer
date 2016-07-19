@@ -9,7 +9,8 @@
 /* Begin PBXBuildFile section */
 		0714659FC305AD53BC1B54520C99D1B1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
 		08BF53EBA6E2A372B56004F74A7FAFAF /* Pods-AppVersionEnforcer_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B87897B59C518C9529C24BE3C1147AEA /* Pods-AppVersionEnforcer_Tests-dummy.m */; };
-		474893C2C2C31B406A0B67F7DD8C7F07 /* ReplaceMe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95344E698C4733381867CC57CE04325A /* ReplaceMe.swift */; };
+		4F4FD9FC1D3E33A0000E97FA /* AppVersionEnforcer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FD9FA1D3E33A0000E97FA /* AppVersionEnforcer.swift */; };
+		4F4FD9FD1D3E33A0000E97FA /* VersionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F4FD9FB1D3E33A0000E97FA /* VersionData.swift */; };
 		50682B7B565FBE529FBDD2CA37947797 /* Pods-AppVersionEnforcer_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8A839CB5A236841FDC3BCEFDB9AD5D59 /* Pods-AppVersionEnforcer_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A588681F43AD8EB79031F6A25533F123 /* AppVersionEnforcer-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CEFBE527F12455429BACFA1370616980 /* AppVersionEnforcer-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		BF4F648F97A18F23959AEC7C5BB4FE76 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEC22C73C1608DFA5D5D78BDCB218219 /* Foundation.framework */; };
@@ -32,6 +33,8 @@
 		24704B016A1206756AE625E645F14FF8 /* AppVersionEnforcer.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = AppVersionEnforcer.xcconfig; sourceTree = "<group>"; };
 		36B4A82D7A05FB828E298C4B99A460BE /* AppVersionEnforcer-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "AppVersionEnforcer-prefix.pch"; sourceTree = "<group>"; };
 		3A9E43B6FEBFF2B555ED11AFFD903B3F /* Pods-AppVersionEnforcer_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-AppVersionEnforcer_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		4F4FD9FA1D3E33A0000E97FA /* AppVersionEnforcer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppVersionEnforcer.swift; sourceTree = "<group>"; };
+		4F4FD9FB1D3E33A0000E97FA /* VersionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VersionData.swift; sourceTree = "<group>"; };
 		57725BCB51AD73234CBE1EC26A797FBF /* Pods_AppVersionEnforcer_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_AppVersionEnforcer_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5FB16D54AD4A952A6F687635C687A384 /* Pods-AppVersionEnforcer_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-AppVersionEnforcer_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		796612F8D6305078687D323C3E846000 /* Pods-AppVersionEnforcer_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-AppVersionEnforcer_Tests.modulemap"; sourceTree = "<group>"; };
@@ -40,7 +43,6 @@
 		80B12554D5F7D4373D0C61312D840FAC /* Pods-AppVersionEnforcer_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-AppVersionEnforcer_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		8A839CB5A236841FDC3BCEFDB9AD5D59 /* Pods-AppVersionEnforcer_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-AppVersionEnforcer_Tests-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		95344E698C4733381867CC57CE04325A /* ReplaceMe.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ReplaceMe.swift; sourceTree = "<group>"; };
 		A18AB0CA0B8F4F13F9052E3092EEC9A1 /* AppVersionEnforcer-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "AppVersionEnforcer-dummy.m"; sourceTree = "<group>"; };
 		A8AFF8F004E78B030B063A16612D5546 /* Pods-AppVersionEnforcer_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-AppVersionEnforcer_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		B87897B59C518C9529C24BE3C1147AEA /* Pods-AppVersionEnforcer_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-AppVersionEnforcer_Tests-dummy.m"; sourceTree = "<group>"; };
@@ -129,7 +131,8 @@
 		76F0F57FC84EFAE2B6E4F073A4877D04 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				95344E698C4733381867CC57CE04325A /* ReplaceMe.swift */,
+				4F4FD9FA1D3E33A0000E97FA /* AppVersionEnforcer.swift */,
+				4F4FD9FB1D3E33A0000E97FA /* VersionData.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -277,8 +280,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F4FD9FC1D3E33A0000E97FA /* AppVersionEnforcer.swift in Sources */,
+				4F4FD9FD1D3E33A0000E97FA /* VersionData.swift in Sources */,
 				F8738C621C2833D202B07D6BFA1F3617 /* AppVersionEnforcer-dummy.m in Sources */,
-				474893C2C2C31B406A0B67F7DD8C7F07 /* ReplaceMe.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +407,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24704B016A1206756AE625E645F14FF8 /* AppVersionEnforcer.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -432,6 +437,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 24704B016A1206756AE625E645F14FF8 /* AppVersionEnforcer.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;

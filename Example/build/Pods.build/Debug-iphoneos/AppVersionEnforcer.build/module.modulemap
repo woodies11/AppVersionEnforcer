@@ -1,0 +1,10 @@
+framework module AppVersionEnforcer {
+  umbrella header "AppVersionEnforcer-umbrella.h"
+
+  export *
+  module * { export * }
+}
+
+module AppVersionEnforcer.Swift {
+    header "AppVersionEnforcer-Swift.h"
+}
