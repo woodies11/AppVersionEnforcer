@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'AppVersionEnforcer'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'Communicate with server and prompt or force the user to update'
 
 # This description is used to generate tags and improve search results.
