@@ -307,20 +307,7 @@ public class AppVersionEnforcer: NSObject {
             message: versionData.versionDescription,
             preferredStyle: .Alert)
         
-        // add updateLink
-        alert.addAction(UIAlertAction(title: "Update", style: .Default, handler: { (action) in
-            self.handleUpdateRedirect()
-        }))
-        
         if !isForced {
-            // if there is a link
-            if versionData.enableLink {
-                alert.addAction(UIAlertAction(
-                    title: versionData.linkTitle, style: .Default, handler:
-                    { (action) in
-                        self.handleLink(versionData.linkURL)
-                }))
-            }
             
             // If alert is allow to be ignored (Don't show again)
             if versionData.allowDontShowAgain {
@@ -352,6 +339,21 @@ public class AppVersionEnforcer: NSObject {
         } else {
             self.forcingAlert = true
         }
+        
+        // if there is a link
+        if versionData.enableLink {
+            alert.addAction(UIAlertAction(
+                title: versionData.linkTitle, style: .Default, handler:
+                { (action) in
+                    self.handleLink(versionData.linkURL)
+            }))
+        } else {
+            // add default updateLink
+            alert.addAction(UIAlertAction(title: "Update", style: .Default, handler: { (action) in
+                self.handleUpdateRedirect()
+            }))
+        }
+        
         
         self.currentAlert = alert;
         showAlert(alert)
@@ -404,7 +406,8 @@ public class AppVersionEnforcer: NSObject {
         }
         
         guard let finalizedURL = tempURL else {
-            print("ERROR! Invalid URL (2)")
+            print("ERROR! Invalid URL (2), attempting to redirect to AppStore")
+            handleUpdateRedirect()
             return
         }
         
