@@ -112,6 +112,11 @@ public class AppVersionEnforcer: NSObject {
             
             guard let versionDatas = response.result.value  as? [AnyObject] else {
                 print("ERROR! No Value Found!")
+                guard let localVersion = self.currentVersion else {
+                    print("No local version")
+                    return
+                }
+                self.processVersionData(localVersion, isForced: self.userIsForced, isNew: false)
                 return
             }
             
@@ -257,6 +262,9 @@ public class AppVersionEnforcer: NSObject {
         if isNew {
             userIsForced = isForced
             NSUserDefaults.standardUserDefaults().setBool(userIsForced, forKey: USER_IS_FORCED)
+            NSUserDefaults.standardUserDefaults()
+                .setObject(versionData.versionDataDict,
+                           forKey: self.USER_VERSION_DATA_DICT)
         }
         
         // if isForced, show alert and ignore other cases
@@ -320,9 +328,6 @@ public class AppVersionEnforcer: NSObject {
                     { (action) in
                         NSUserDefaults.standardUserDefaults()
                             .setBool(true, forKey: self.USER_DONT_SHOW_AGAIN)
-                        NSUserDefaults.standardUserDefaults()
-                            .setObject(versionData.versionDataDict,
-                                forKey: self.USER_VERSION_DATA_DICT)
                 }))
             }
             
@@ -341,9 +346,6 @@ public class AppVersionEnforcer: NSObject {
                     NSUserDefaults.standardUserDefaults()
                         .setInteger(versionData.repeatAlertEvery,
                                     forKey: self.USER_REPEAT_COUNTDOWN)
-                    NSUserDefaults.standardUserDefaults()
-                        .setObject(versionData.versionDataDict,
-                                   forKey: self.USER_VERSION_DATA_DICT)
                 }
             }
             
