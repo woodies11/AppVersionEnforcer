@@ -400,6 +400,12 @@ public class AppVersionEnforcer: NSObject {
         var tempURL: NSURL? = URL
         
         if !UIApplication.sharedApplication().canOpenURL(URL) {
+            if urlString.isEmpty {
+                // safeguard, attempt to redirect to AppStore
+                handleUpdateRedirect()
+                return
+            }
+            
             if !(urlString.containsString("http://") ||  urlString.containsString("https://")) {
                 tempURL = addHTTPtoLink(urlString)
             }
