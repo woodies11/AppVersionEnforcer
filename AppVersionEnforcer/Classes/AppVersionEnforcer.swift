@@ -55,7 +55,7 @@ public class AppVersionEnforcer: NSObject {
      * @param apiURL = base api url
      * @param window = main window to show alert on
      */
-    init(apiURL: String, window: UIWindow?) {
+    public init(apiURL: String, window: UIWindow?) {
         self.apiURL = apiURL
         
         if self.apiURL.characters.last != "/" {
@@ -375,7 +375,7 @@ public class AppVersionEnforcer: NSObject {
      * Call this function in AppDelegate applicationDidBecomeActive()
      * to enforce alert upon user returning to the application
      */
-    func applicationDidBecomeActive(application: UIApplication) {
+    public func applicationDidBecomeActive(application: UIApplication) {
         if let alert = self.currentAlert where self.forcingAlert {
             showAlert(alert)
         }
